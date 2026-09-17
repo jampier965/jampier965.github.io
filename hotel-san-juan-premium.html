@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel San Juan - Coquimbo | Resort Familiar Frente al Mar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a3a4a;
+            --secondary: #f4a460;
+            --accent: #fffdf7;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --border-color: #e8dcc8;
+            --warm-yellow: #ffd700;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--accent);
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(10, 58, 74, 0.98);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2.5rem;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 58, 74, 0.8) 0%, rgba(10, 58, 74, 0.7) 100%),
+                        linear-gradient(to right, #1a5f7a 0%, #0d2d3a 100%);
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            text-align: center;
+            padding: 12rem 2rem 8rem;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 50%),
+                       radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--accent);
+            clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(244, 164, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 1.5rem auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .about {
+            background-color: var(--text-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-badge {
+            background-color: rgba(244, 164, 96, 0.1);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .highlight-badge strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(10, 58, 74, 0.8) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 58, 74, 0.2);
+        }
+
+        .rooms {
+            background-color: var(--accent);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .room-card {
+            background-color: var(--text-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 58, 74, 0.15);
+        }
+
+        .room-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(10, 58, 74, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .room-content {
+            padding: 2rem;
+        }
+
+        .room-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .room-content p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .room-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .amenity-tag {
+            background-color: rgba(244, 164, 96, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(10, 58, 74, 0.9) 100%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(244, 164, 96, 0.08);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .testimonials .section-title {
+            color: var(--secondary);
+        }
+
+        .testimonials .section-title::after {
+            background-color: var(--text-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255,255,255,0.08);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .stars {
+            color: var(--warm-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.3rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .testimonial-author {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .gallery {
+            background-color: var(--accent);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 58, 74, 0.9);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .restaurant {
+            background-color: var(--text-light);
+        }
+
+        .restaurant-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .restaurant-text h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .restaurant-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(10, 58, 74, 0.8) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 2px solid rgba(244, 164, 96, 0.3);
+        }
+
+        .services {
+            background-color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            background-color: var(--text-light);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            background-color: var(--text-light);
+            border-color: var(--secondary);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact {
+            background-color: var(--accent);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .reservation-form {
+            background-color: var(--text-light);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--accent);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background-color: var(--text-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid var(--secondary);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            .hero {
+                padding: 5rem 2rem 3rem;
+                margin-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .restaurant-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .rooms-grid,
+            .services-grid,
+            .testimonials-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HOTEL SAN JUAN</div>
+            <div style="display: flex; gap: 2.5rem; flex-wrap: wrap;">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#habitaciones">Habitaciones</a>
+                <a href="#testimonios">Reseñas</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>HOTEL SAN JUAN</h1>
+            <p class="tagline">Tu Refugio Familiar Frente al Mar</p>
+            <p class="subtitle">Un hotel acogedor a solo 4 minutos caminando de la hermosa Playa La Herradura, donde la calidez de nuestro servicio y la belleza del Pacífico se encuentran</p>
+            <div class="cta-buttons">
+                <button class="btn" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Reservar Ahora</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('habitaciones').scrollIntoView({behavior: 'smooth'})">Ver Habitaciones</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Bienvenido a Nuestro Hogar</h2>
+            <p class="section-subtitle">Una experiencia familiar única en el corazón de Coquimbo</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hotel Familiar de Carácter Sencillo</h2>
+                    <p>Hotel San Juan es un refugio acogedor ubicado a solo 4 minutos caminando de la hermosa Playa La Herradura. Nuestro hotel combina la comodidad moderna con el toque personal que solo un establecimiento familiar puede brindar.</p>
+                    <p>Ubicados a 6 km de la parroquia San Pedro de Coquimbo y del monumento Cruz del Tercer Milenio, nos encontramos en un lugar privilegiado que te permite disfrutar de tranquilidad y naturaleza.</p>
+                    <p>Lo que nos hace especial es nuestro equipo: personas genuinamente preocupadas por hacer tu estancia lo más agradable posible. Soledad, Marcelo, Jeanette y todo nuestro personal están comprometidos con tu bienestar.</p>
+                    
+                    <div class="highlights">
+                        <div class="highlight-badge">
+                            <strong>🏖️ 4 min de playa</strong>
+                            Acceso fácil a La Herradura
+                        </div>
+                        <div class="highlight-badge">
+                            <strong>🌳 Lugar tranquilo</strong>
+                            Ambiente familiar y seguro
+                        </div>
+                        <div class="highlight-badge">
+                            <strong>🍽️ Desayuno incluido</strong>
+                            Muy bueno y completo
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">🏨</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms" id="habitaciones">
+        <div class="container">
+            <h2 class="section-title">Nuestras Habitaciones</h2>
+            <p class="section-subtitle">Espacios acogedores diseñados para tu comodidad</p>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">🛏️</div>
+                    <div class="room-content">
+                        <h3>Habitación Doble Standard</h3>
+                        <p>Acogedora habitación con cama doble, decoración cálida y confortables. Ideal para parejas y viajeros individuales que buscan descanso.</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag">WiFi Gratis</span>
+                            <span class="amenity-tag">TV Pantalla Plana</span>
+                            <span class="amenity-tag">Baño Privado</span>
+                            <span class="amenity-tag">Desayuno Incluido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">👨‍👩‍👧</div>
+                    <div class="room-content">
+                        <h3>Habitación Triple</h3>
+                        <p>Perfecta para familias. Espaciosa habitación con 3 camas de madera, baño privado y ambiente acogedor. Disfruta de comodidad para toda la familia.</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag">WiFi Gratis</span>
+                            <span class="amenity-tag">Estacionamiento</span>
+                            <span class="amenity-tag">Servicio Lavandería</span>
+                            <span class="amenity-tag">Desayuno Incluido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">👨‍👩‍👧‍👦</div>
+                    <div class="room-content">
+                        <h3>Habitación Cuádruple</h3>
+                        <p>Nuestra opción más espaciosa. Cama doble + litera en habitación amplia. Perfecta para familias grandes o grupos que buscan comodidad y calidez.</p>
+                        <div class="room-amenities">
+                            <span class="amenity-tag">WiFi Alta Velocidad</span>
+                            <span class="amenity-tag">Estacionamiento Libre</span>
+                            <span class="amenity-tag">Baño Completo</span>
+                            <span class="amenity-tag">Desayuno Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Lo que Dicen Nuestros Huéspedes</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Experiencias reales de quienes han confiado en nosotros</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Las personas del Hotel super amables. La habitación esta limpia. El estacionamiento bien. Super cerca de la playa, de restaurantes. En un lugar tranquilo"</p>
+                    <p class="testimonial-author">Leicy - Chile</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"La atención de su personal, destacando la amabilidad y buena disposición de la señora Soledad, don Marcelo y la señora Jeanette, son personas preocupadas por hacer tu estancia lo mas agradable"</p>
+                    <p class="testimonial-author">Carla - Chile</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Excelente atención, todo limpio cómodo y un ambiente familiar ☺️ Lo recomiendo sin duda. Un lugar perfecto para descansar con la familia"</p>
+                    <p class="testimonial-author">Araya - Chile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galería de Fotos</h2>
+            <p class="section-subtitle">Conoce nuestras instalaciones y ambientes</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="position: relative;">
+                    🏠
+                    <div class="gallery-label">Exterior del Hotel</div>
+                </div>
+                <div class="gallery-item" style="position: relative;">
+                    🛏️
+                    <div class="gallery-label">Habitaciones Acogedoras</div>
+                </div>
+                <div class="gallery-item" style="position: relative;">
+                    🚿
+                    <div class="gallery-label">Baños Modernos</div>
+                </div>
+                <div class="gallery-item" style="position: relative;">
+                    🍽️
+                    <div class="gallery-label">Comedor Familiar</div>
+                </div>
+                <div class="gallery-item" style="position: relative;">
+                    🏖️
+                    <div class="gallery-label">Playa La Herradura</div>
+                </div>
+                <div class="gallery-item" style="position: relative;">
+                    🌅
+                    <div class="gallery-label">Atardecer en el Mar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="restaurant">
+        <div class="container">
+            <h2 class="section-title">Nuestro Comedor</h2>
+            <div class="restaurant-content">
+                <div class="restaurant-text">
+                    <h2>Desayuno Delicioso y Ambiente Acogedor</h2>
+                    <p>Nuestro comedor es el corazón del hotel, un espacio cálido donde comenzamos cada día con un desayuno muy bueno e incluido en tu reserva.</p>
+                    <p>En un ambiente familiar y relajado, puedes disfrutar de tu desayuno con vistas al jardín del hotel. Nuestro equipo se encarga de que tengas una experiencia agradable desde la mañana.</p>
+                    <p>El comedor está disponible para que disfrutes en cualquier momento, y siempre encontrarás a nuestro personal dispuesto a ayudarte con cualquier necesidad.</p>
+                    <p style="margin-top: 1.5rem; font-weight: 600; color: var(--primary);">📞 Para consultas sobre el comedor: <a href="tel:+56992795612">+56 99 2795612</a></p>
+                </div>
+                <div class="restaurant-image">🍽️</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Servicios y Comodidades</h2>
+            <p class="section-subtitle">Todo pensado para tu bienestar</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🅿️</div>
+                    <h3>Estacionamiento Gratuito</h3>
+                    <p>Amplio estacionamiento privado sin costo adicional. Perfecto si viajas en auto.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>WiFi de Alta Velocidad</h3>
+                    <p>Conexión a internet rápida y confiable en todas las áreas del hotel.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧺</div>
+                    <h3>Servicio de Lavandería</h3>
+                    <p>Servicio de lavado y planchado disponible para estancias prolongadas.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌳</div>
+                    <h3>Jardín Privado</h3>
+                    <p>Espacios verdes y agradables donde relajarse y disfrutar de tranquilidad.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📺</div>
+                    <h3>TV Pantalla Plana</h3>
+                    <p>Todas las habitaciones cuentan con TV de pantalla plana con señal de cable.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Ambiente Familiar</h3>
+                    <p>Lugar tranquilo y seguro, ideal para familias y viajeros que buscan descanso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto y Reservas</h2>
+            <p class="section-subtitle">¡Estamos listos para recibirte!</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📍 Ubicación</h3>
+                        <p>Capri Sur 151<br>Coquimbo, Región de Coquimbo<br>Chile</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #999;">A solo 4 minutos caminando de Playa La Herradura • Lugar tranquilo y seguro • Fácil acceso a restaurantes</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>📞 Teléfono</h3>
+                        <p><a href="tel:+56992795612">+56 99 2795612</a></p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #999;">Disponible para reservas y consultas • Respuesta rápida</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>🕐 Horarios</h3>
+                        <p><strong>Recepción:</strong> 24 horas<br><strong>Comedor:</strong> 7:00 - 22:00<br><strong>Check-in:</strong> 15:00<br><strong>Check-out:</strong> 12:00</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>⭐ Especial</h3>
+                        <p>Los perros son bienvenidos en el hotel. Nunca tuvimos perros que fumaran en la cama, quemando las sábanas. ¡Usted también es bienvenido!</p>
+                    </div>
+                </div>
+
+                <div class="reservation-form">
+                    <h2 style="color: var(--primary); margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">Solicita tu Reserva</h2>
+                    <form onsubmit="handleReservation(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="checkin">Fecha de Llegada</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="checkout">Fecha de Salida</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Habitación</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="">Selecciona tu habitación...</option>
+                                <option value="standard">Doble Standard</option>
+                                <option value="triple">Triple</option>
+                                <option value="cuadruple">Cuádruple</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notas">Solicitudes Especiales</label>
+                            <textarea id="notas" name="notas" placeholder="¿Tienes mascotas? ¿Necesidades especiales?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%;">Enviar Solicitud de Reserva</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Hotel San Juan - Coquimbo. Todos los derechos reservados.</p>
+            <p>Capri Sur 151, Coquimbo | +56 99 2795612</p>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#habitaciones">Habitaciones</a>
+                <a href="#testimonios">Reseñas</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.7);">Diseñado con pasión por tu comodidad • Hotel Familiar frente al mar</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleReservation(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const tipo = document.getElementById('tipo').value;
+            
+            const tiposHab = {
+                standard: 'Doble Standard',
+                triple: 'Triple',
+                cuadruple: 'Cuádruple'
+            };
+            
+            const mensaje = `¡Gracias ${nombre}! Tu solicitud de reserva ha sido recibida. Nuestro equipo se contactará con la mayor brevedad posible a ${email} para confirmar tu reserva de ${tiposHab[tipo]} del ${checkin} al ${checkout}. ¡Esperamos tu visita al Hotel San Juan!`;
+            
+            alert(mensaje);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
